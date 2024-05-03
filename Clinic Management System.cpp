@@ -5,26 +5,14 @@
 #include <iostream>
 using namespace std;
 
-bool patient::loginCredientials(string Username , string Password ){
-    bool CorrectCredientials = false;
-    cursor = head;  
-    prev = NULL;     // Go tofirst node
-    while ( cursor != NULL) {  // Advance to the next node
-            prev = cursor;
-            if(cursor->username == Username && cursor->password == Password)
-            return true;
-        
-            cursor = cursor->next;
-            }
-    return CorrectCredientials;
-
-}
-
 patient::patient(){
 	head = NULL;
 	cursor = NULL;
 	prev = NULL;
 }
+
+
+
 
 void patient::PrintPatients(){
 
@@ -79,7 +67,7 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
 	
 }
 
-bool Doctor::loginCredientials(string Username , string Password ){
+bool patient::loginCredientials(string Username , string Password ){
     bool CorrectCredientials = false;
     cursor = head;  
     prev = NULL;     // Go tofirst node
@@ -93,6 +81,12 @@ bool Doctor::loginCredientials(string Username , string Password ){
     return CorrectCredientials;
 
 }
+
+
+
+//////////////////////////////////Doctor class //////////////////////////////////
+
+
 
 
 // Constructor to initialize the Doctor
@@ -155,6 +149,36 @@ void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, str
     key++;
 }
 
+bool Doctor::loginCredientials(string Username , string Password ){
+    bool CorrectCredientials = false;
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            if(cursor->username == Username && cursor->password == Password)
+            return true;
+        
+            cursor = cursor->next;
+            }
+    return CorrectCredientials;
+
+}
+
+
+void Doctor::SearchForDoctor(string name){
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            if(toLower(cursor->name).find(name) !=string::npos)
+            {
+                cout<<cursor->name << endl;
+
+            }
+            cursor = cursor->next;
+            }
+    
+}
 
 
 string toLower(string s) {
@@ -165,25 +189,3 @@ string toLower(string s) {
     return s;
    
 }
-
-
-void Doctor::SearchForDoctor(string name){
-
-   
-    cursor = head;  
-    prev = NULL;     // Go tofirst node
-    while ( cursor != NULL) {  // Advance to the next node
-            prev = cursor;
-            
-            
-            if(toLower(cursor->name).find(name) !=string::npos)
-            {
-                cout<<cursor->name << endl;
-
-            }
-        
-            cursor = cursor->next;
-            }
-    
-}
-
