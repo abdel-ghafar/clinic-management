@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 int main() {
-    DoctorRegistration doctorRegistration;
+    Doctor doctor;
     patient Patient;
     int choice;
     string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword , dateBirth;
@@ -50,7 +50,8 @@ int main() {
                 cout << "Confirm password: ";
                 cin >> confirmPassword;
 				}
-                doctorRegistration.addDoctor(name, phoneNumber, emailAddress, address, clinic, username, password);
+                doctor.addDoctor(name, phoneNumber, emailAddress, address, clinic, username, password);
+                doctor.Print();
                 break;
               case 2:
                 cout << "Enter name: ";

@@ -37,14 +37,16 @@ void patient::PrintPatients(){
             
 }
 
+
+
 void patient::AddPatient(string name,string phoneNumber,string emailAddress,string address,string DateBirth,string username,string password){
-	node *newPatient = new node;
+	node *newDoctor = new node;
 	
       if(head == NULL)
     {
     	
-        newPatient ->next = head;
-        head = newPatient;
+        newDoctor ->next = head;
+        head = newDoctor;
         cursor = head;
         prev = NULL;   
     }
@@ -54,20 +56,20 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
             prev = cursor;
             cursor = cursor->next;
         }
-        newPatient->next = cursor->next;
-        cursor -> next = newPatient;
+        newDoctor->next = cursor->next;
+        cursor -> next = newDoctor;
         prev = cursor;
-        cursor = newPatient;
+        cursor = newDoctor;
 
     }
 
-	newPatient->name = name;
-    newPatient->phoneNumber = phoneNumber;
-    newPatient->emailAddress = emailAddress;
-    newPatient->address = address;
-    newPatient->DateBirth = DateBirth;
-    newPatient->username = username;
-    newPatient->password = password;
+	newDoctor->name = name;
+    newDoctor->phoneNumber = phoneNumber;
+    newDoctor->emailAddress = emailAddress;
+    newDoctor->address = address;
+    newDoctor->DateBirth = DateBirth;
+    newDoctor->username = username;
+    newDoctor->password = password;
     
 
 	
@@ -75,40 +77,59 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
 
 
 // Constructor to initialize the Doctor
-Doctor::Doctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password) {
-    name = name;
-    phoneNumber = phoneNumber;
-    emailAddress = emailAddress;
-    address = address;
-    clinic = clinic;
-    username = username;
-    password = password;
-    next = NULL;
+Doctor::Doctor() {
+    head = NULL;
+	cursor = NULL;
+	prev = NULL;
 }
 
-// Constructor to initialize the head pointer
-DoctorRegistration::DoctorRegistration() {
-    head = NULL;
+
+
+void Doctor::Print(){
+
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            cout<< cursor->name << " - ";
+            cursor = cursor->next;
+            }
+            cout<<endl;
+			
+            
 }
 
 // Function to add a new Doctor to the list
-void DoctorRegistration::addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password) {
-    Doctor* newDoctor = new Doctor(name, phoneNumber, emailAddress, address, clinic, username, password);
+void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password) {
+    node *newDoctor = new node;
+    
 
-    // If list is empty, set new Doctor as head
-    if (head == NULL) {
+    if(head == NULL)
+    {
+    	
+        newDoctor ->next = head;
         head = newDoctor;
-        cout << "\nDoctor added successfully!\n" << endl;
-        return;
+        cursor = head;
+        prev = NULL;   
+    }
+    else{
+        cursor = head;  prev = NULL;     // Go tofirst node 
+		while ( cursor->next != NULL) {  // Advance to the next node
+            prev = cursor;
+            cursor = cursor->next;
+        }
+        newDoctor->next = cursor->next;
+        cursor -> next = newDoctor;
+        prev = cursor;
+        cursor = newDoctor;
+
     }
 
-    // Traverse to the end of the list
-    Doctor* temp = head;
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-
-    // Insert new Doctor at the end
-    temp->next = newDoctor;
-    cout << "\nDoctor added successfully!\n" << endl;
+	newDoctor->name = name;
+    newDoctor->phoneNumber = phoneNumber;
+    newDoctor->emailAddress = emailAddress;
+    newDoctor->address = address;
+    newDoctor->clinic = clinic;
+    newDoctor->username = username;
+    newDoctor->password = password;
 }

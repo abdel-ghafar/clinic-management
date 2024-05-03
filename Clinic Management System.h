@@ -32,7 +32,9 @@ class patient{
 
 // Define the Doctor class
 class Doctor {
-public:
+    private:
+    class node{
+    public:
     string name;
     string phoneNumber;
     string emailAddress;
@@ -40,22 +42,15 @@ public:
     string clinic;
     string username;
     string password;
-    Doctor* next;
-
+    node* next;
+    };
+    node *head , *prev , *cursor;
+    public:
     // Constructor to initialize the Doctor
-    Doctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password);
-};
-
-// Define the DoctorRegistration class
-class DoctorRegistration {
-private:
-    Doctor* head; // Pointer to the head of the linked list
-
-public:
-    // Constructor to initialize the head pointer
-    DoctorRegistration();
-
-    // Function to add a new Doctor to the list
+    Doctor();
     void addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password);
+    void Print();
 };
+
+
 
