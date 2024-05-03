@@ -1,6 +1,9 @@
 // Clinic Management System.cpp
 
 #include "Clinic Management System.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
 bool patient::loginCredientials(string Username , string Password ){
     bool CorrectCredientials = false;
@@ -39,9 +42,9 @@ void patient::PrintPatients(){
 
 
 
-void patient::AddPatient(string name,string phoneNumber,string emailAddress,string address,string DateBirth,string username,string password){
+void patient::AddPatient(string name,string phoneNumber,string emailAddress,string address,string DateBirth,string username,string password ){
 	node *newDoctor = new node;
-	
+	int key=0;
       if(head == NULL)
     {
     	
@@ -63,6 +66,7 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
 
     }
 
+    newDoctor->key = key;
 	newDoctor->name = name;
     newDoctor->phoneNumber = phoneNumber;
     newDoctor->emailAddress = emailAddress;
@@ -71,7 +75,7 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
     newDoctor->username = username;
     newDoctor->password = password;
     
-
+    key++;
 	
 }
 
@@ -117,7 +121,7 @@ void Doctor::Print(){
 // Function to add a new Doctor to the list
 void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password) {
     node *newDoctor = new node;
-    
+    int key =0;
 
     if(head == NULL)
     {
@@ -139,7 +143,7 @@ void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, str
         cursor = newDoctor;
 
     }
-
+    newDoctor->key = key;
 	newDoctor->name = name;
     newDoctor->phoneNumber = phoneNumber;
     newDoctor->emailAddress = emailAddress;
@@ -147,4 +151,39 @@ void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, str
     newDoctor->clinic = clinic;
     newDoctor->username = username;
     newDoctor->password = password;
+
+    key++;
 }
+
+
+
+string toLower(string s) {
+    for(int i=0 ; i<s.length();i++)
+    {
+        s[i]=tolower(s[i]);
+    }
+    return s;
+   
+}
+
+
+void Doctor::SearchForDoctor(string name){
+
+   
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            
+            
+            if(toLower(cursor->name).find(name) !=string::npos)
+            {
+                cout<<cursor->name << endl;
+
+            }
+        
+            cursor = cursor->next;
+            }
+    
+}
+

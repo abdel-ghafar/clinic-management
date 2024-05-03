@@ -18,7 +18,8 @@ int main() {
         cout << "##    2. Patient Regestration      ##" << endl;
         cout << "##    3. Patient Login             ##" << endl;
         cout << "##    4. Doctor Login              ##" << endl;
-        cout << "##    5. Exit                      ##" << endl;
+        cout << "##    5. Doctor Search             ##" << endl;
+        cout << "##    6. Exit                      ##" << endl;
         cout << "#####################################" << endl << endl;
         cout << "Enter your choice: ";
         cin >> choice;
@@ -109,6 +110,13 @@ int main() {
                  cout<< "please check your username and password Try agein .........";
                 break;
             case 5:
+            cout<<"Enter name to search for ";
+            cin>>name;
+            cout<<endl;
+            doctor.SearchForDoctor(name);
+            cout<<endl;
+            break;
+            case 6:
                 cout << "Thank you for attention..." << endl;
                 cout << "Team members: [Mostafa Ahmed Mostafa Abdelghafar]" << endl;
                 cout << "              [Nour eldin Mohamed Yehia Mohamed ]" << endl;
@@ -125,7 +133,7 @@ int main() {
         
        
         
-    } while (choice != 5);
+    } while (choice != 6);
 
     return 0;
 }
