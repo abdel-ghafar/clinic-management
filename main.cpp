@@ -1,26 +1,50 @@
 
 #include "Clinic Management System.h"
 #include <iostream>
+#include <Windows.h>
 using namespace std;
+ void gotoxy(int x , int y){
+    COORD c;
+    c.X=x;
+    c.Y=y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),c);
+
+}
+
+string CenterText(int x , int y , string S){
+    
+    gotoxy(x/2 -(S.size()/2),y);
+
+    return S;
+
+}
 int main() {
     Doctor doctor;
     patient Patient;
     int choice;
     string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword , dateBirth;
-    
+
+       CONSOLE_SCREEN_BUFFER_INFO sbInfo;
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &sbInfo);
+    int availableColumns = sbInfo.dwSize.X;
+    int availableRows = sbInfo.dwSize.Y;    
+
+   
 
     // Menu-driven user interface
     do {
-        cout << "#####################################" << endl;
-        cout << "##    Clinic Management System     ##" << endl;
-        cout << "##-------------------------------- ##" << endl;
-        cout << "##    1. Add Doctor                ##" << endl;
-        cout << "##    2. Patient Regestration      ##" << endl;
-        cout << "##    3. Patient Login             ##" << endl;
-        cout << "##    4. Doctor Login              ##" << endl;
-        cout << "##    5. Doctor Search             ##" << endl;
-        cout << "##    6. Exit                      ##" << endl;
-        cout << "#####################################" << endl << endl;
+     
+        
+        cout << CenterText(availableColumns,1,"#####################################") << endl;
+        cout << CenterText(availableColumns,2,"##    Clinic Management System     ##") << endl;
+        cout << CenterText(availableColumns,3,"##-------------------------------- ##") << endl;
+        cout << CenterText(availableColumns,4,"##    1. Add Doctor                ##") << endl;
+        cout << CenterText(availableColumns,5,"##    2. Patient Regestration      ##") << endl;
+        cout << CenterText(availableColumns,6,"##    3. Patient Login             ##") << endl;
+        cout << CenterText(availableColumns,7,"##    4. Doctor Login              ##") << endl;
+        cout << CenterText(availableColumns,8,"##    5. Doctor Search             ##") << endl;
+        cout << CenterText(availableColumns,9,"##    6. Exit                      ##") << endl;
+        cout << CenterText(availableColumns,10,"#####################################") << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         cout << "\n";

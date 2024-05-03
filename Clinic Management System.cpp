@@ -164,6 +164,14 @@ bool Doctor::loginCredientials(string Username , string Password ){
 
 }
 
+string toLower(string s) {
+    for(int i=0 ; i<s.length();i++)
+    {
+        s[i]=tolower(s[i]);
+    }
+    return s;
+   
+}
 
 void Doctor::SearchForDoctor(string name){
     cursor = head;  
@@ -181,11 +189,4 @@ void Doctor::SearchForDoctor(string name){
 }
 
 
-string toLower(string s) {
-    for(int i=0 ; i<s.length();i++)
-    {
-        s[i]=tolower(s[i]);
-    }
-    return s;
-   
-}
+
