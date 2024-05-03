@@ -2,6 +2,21 @@
 
 #include "Clinic Management System.h"
 
+bool patient::loginCredientials(string Username , string Password ){
+    bool CorrectCredientials = false;
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            if(cursor->username == Username && cursor->password == Password)
+            return true;
+        
+            cursor = cursor->next;
+            }
+    return CorrectCredientials;
+
+}
+
 patient::patient(){
 	head = NULL;
 	cursor = NULL;

@@ -26,6 +26,7 @@ class patient{
 	patient();
 	void PrintPatients();
 	void AddPatient(string name , string phoneNumber , string emailAddress , string address , string DateBirth , string username , string password);
+    bool loginCredientials(string Username , string Password );
 		
 };
 
