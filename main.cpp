@@ -17,7 +17,8 @@ int main() {
         cout << "##    1. Add Doctor                ##" << endl;
         cout << "##    2. Patient Regestration      ##" << endl;
         cout << "##    3. Patient Login             ##" << endl;
-        cout << "##    4. Exit                      ##" << endl;
+        cout << "##    4. Doctor Login              ##" << endl;
+        cout << "##    5. Exit                      ##" << endl;
         cout << "#####################################" << endl << endl;
         cout << "Enter your choice: ";
         cin >> choice;
@@ -88,8 +89,7 @@ int main() {
                 cout << "Enter password: ";
                 cin >> password;
                 
-				
-                 Patient.loginCredientials(username,password);
+			
                  if(Patient.loginCredientials(username,password)){
                     cout<< "Login Successfule .........";
                  } else 
@@ -97,6 +97,18 @@ int main() {
                     break;
             
             case 4:
+                cout << "Enter Username: ";
+                cin >> username;
+                cout << "Enter password: ";
+                cin >> password;
+                
+			
+                 if(doctor.loginCredientials(username,password)){
+                    cout<< "Login Successfule .........";
+                 } else 
+                 cout<< "please check your username and password Try agein .........";
+                break;
+            case 5:
                 cout << "Thank you for attention..." << endl;
                 cout << "Team members: [Mostafa Ahmed Mostafa Abdelghafar]" << endl;
                 cout << "              [Nour eldin Mohamed Yehia Mohamed ]" << endl;
@@ -113,7 +125,7 @@ int main() {
         
        
         
-    } while (choice != 4);
+    } while (choice != 5);
 
     return 0;
 }

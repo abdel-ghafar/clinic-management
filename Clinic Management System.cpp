@@ -75,6 +75,21 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
 	
 }
 
+bool Doctor::loginCredientials(string Username , string Password ){
+    bool CorrectCredientials = false;
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            if(cursor->username == Username && cursor->password == Password)
+            return true;
+        
+            cursor = cursor->next;
+            }
+    return CorrectCredientials;
+
+}
+
 
 // Constructor to initialize the Doctor
 Doctor::Doctor() {

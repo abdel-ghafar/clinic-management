@@ -50,6 +50,7 @@ class Doctor {
     Doctor();
     void addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password);
     void Print();
+    bool loginCredientials(string Username , string Password );
 };
 
 
