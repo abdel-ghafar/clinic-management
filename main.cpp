@@ -6,8 +6,8 @@ int main() {
     DoctorRegistration doctorRegistration;
     patient Patient;
     int choice;
-    string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword;
-    string Pname, PphoneNumber, PemailAddress, Paddress, PdateBirth, Pusername, Ppassword, PconfirmPassword;
+    string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword , dateBirth;
+    
 
     // Menu-driven user interface
     do {
@@ -54,31 +54,31 @@ int main() {
                 break;
               case 2:
                 cout << "Enter name: ";
-                cin >> Pname;
+                cin >> name;
                 cout << "Enter phone number: ";
-                cin >> PphoneNumber;
+                cin >> phoneNumber;
                 cout << "Enter email address: ";
-                cin >> PemailAddress;
+                cin >> emailAddress;
                 cout << "Enter address: ";
-                cin >> Paddress;
+                cin >> address;
                 cout << "Enter Birth Date: ";
-                cin >> PdateBirth;
+                cin >> dateBirth;
                 cout << "Enter username: ";
-                cin >> Pusername;
+                cin >> username;
                 cout << "Enter password: ";
-                cin >> Ppassword;
+                cin >> password;
                 cout << "Confirm password: ";
-                cin >> PconfirmPassword;
+                cin >> confirmPassword;
 
                 // Check if passwords match
-                while (Ppassword != PconfirmPassword) {
+                while (password != confirmPassword) {
                     cout << "Passwords do not match. Please try again.\n" << endl;
                     cout << "Enter password: ";
-                cin >> Ppassword;
+                cin >> password;
                 cout << "Confirm password: ";
-                cin >> PconfirmPassword;
+                cin >> confirmPassword;
 				}
-                 Patient.AddPatient(Pname,PphoneNumber,PemailAddress,Paddress,PdateBirth,Pusername,Ppassword);
+                 Patient.AddPatient(name,phoneNumber,emailAddress,address,dateBirth,username,password);
                  Patient.PrintPatients();
                     break;    
             case 3:
