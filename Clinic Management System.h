@@ -28,6 +28,7 @@ class patient{
 	void PrintPatients();
 	void AddPatient(string name , string phoneNumber , string emailAddress , string address , string DateBirth , string username , string password);
     bool loginCredientials(string Username , string Password );
+    int RetriveKey();
 		
 };
 
@@ -50,10 +51,11 @@ class Doctor {
     public:
     // Constructor to initialize the Doctor
     Doctor();
-    void addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password);
+    void addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password , int key);
     void Print();
     bool loginCredientials(string Username , string Password );
     void SearchForDoctor(string name);
+    int RetriveKey();
 };
 
 

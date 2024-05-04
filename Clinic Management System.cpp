@@ -82,6 +82,10 @@ bool patient::loginCredientials(string Username , string Password ){
 
 }
 
+int patient::RetriveKey(){
+    return cursor->key;
+}
+
 
 
 //////////////////////////////////Doctor class //////////////////////////////////
@@ -113,9 +117,8 @@ void Doctor::Print(){
 }
 
 // Function to add a new Doctor to the list
-void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password) {
+void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, string address, string clinic, string username, string password ,int key) {
     node *newDoctor = new node;
-    int key =0;
 
     if(head == NULL)
     {
@@ -145,8 +148,6 @@ void Doctor::addDoctor(string name, string phoneNumber, string emailAddress, str
     newDoctor->clinic = clinic;
     newDoctor->username = username;
     newDoctor->password = password;
-
-    key++;
 }
 
 bool Doctor::loginCredientials(string Username , string Password ){
@@ -157,11 +158,14 @@ bool Doctor::loginCredientials(string Username , string Password ){
             prev = cursor;
             if(cursor->username == Username && cursor->password == Password)
             return true;
-        
             cursor = cursor->next;
             }
     return CorrectCredientials;
 
+}
+
+int Doctor::RetriveKey(){
+    return cursor->key;
 }
 
 string toLower(string s) {
