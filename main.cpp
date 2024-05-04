@@ -28,6 +28,9 @@ string CenterText(int x , int y , string S){
 
 }
 
+
+
+
 void MainMenu(int availableColumns , int Set[]){
         cout << CenterText(availableColumns,1,"#####################################") << endl;
         cout << CenterText(availableColumns,2,"##    Clinic Management System     ##") << endl;
@@ -81,13 +84,17 @@ int main() {
            system("cls");
            MainMenu(availableColumns , Set);
            do{
-           	
+          	
         key =_getch();
-        MainMenu(availableColumns , Set);
-        if(key== 72 && (counter >=2)) 
-        {counter --;}
-        if(key== 80 && (counter >=1 && counter <=5))
-        {counter ++;}
+        
+        if(key== 72 && (counter >=2))  // Up Arrow
+        {counter --;
+        cout << "Counter = "<<counter << endl;
+        }
+        if(key== 80 && (counter >=1 && counter <6)) // Down Arrow
+        {counter ++;
+        cout << "Counter = "<<counter << endl;
+        }
         Set[0]=7;
         Set[1]=7;
         Set[2]=7;
@@ -107,12 +114,10 @@ int main() {
         Set[4] =12;
         if(counter ==6) 
         Set[5] =12;
+        MainMenu(availableColumns , Set);
          } while (key != '\r');
 
-        
-            choice = counter;
-
-             switch (choice) {
+             switch (counter) {
             case 1:
                 cout << "Enter Doctor name: ";
                 cin >> name;
@@ -141,9 +146,10 @@ int main() {
 				}
                 doctor.addDoctor(name, phoneNumber, emailAddress, address, clinic, username, password);
                 doctor.Print();
-                Sleep(5000);
+                
+                system("pause");
                 break;
-              case 2:
+            case 2:
                 cout << "Enter name: ";
                 cin >> name;
                 cout << "Enter phone number: ";
@@ -171,9 +177,10 @@ int main() {
 				}
                  Patient.AddPatient(name,phoneNumber,emailAddress,address,dateBirth,username,password);
                  Patient.PrintPatients();
-                 Sleep(5000);
+              
+                system("pause");
                  
-                    break;    
+                    break;
             case 3:
                 cout << "Enter Username: ";
                 cin >> username;
@@ -185,7 +192,8 @@ int main() {
                     cout<< "Login Successfule .........";
                  } else 
                  cout<< "please check your username and password Try agein .........";
-                 Sleep(5000);
+                 cout << "press any key to Continue" << endl;
+                system("pause");
                     break;
             
             case 4:
@@ -199,16 +207,19 @@ int main() {
                     cout<< "Login Successfule .........";
                  } else 
                  cout<< "please check your username and password Try agein .........";
-                Sleep(5000);
+                
+                system("pause");
                 break;
             case 5:
-            cout<<"Enter name to search for ";
-            cin>>name;
-            cout<<endl;
-            doctor.SearchForDoctor(name);
-            cout<<endl;
-           Sleep(5000);
-            break;
+                 cout<<"Enter name to search for ";
+                 cin>>name;
+                 cout<<endl;
+                 doctor.SearchForDoctor(name);
+                 cout<<endl;
+                 
+                system("pause");
+                break;
+            
             case 6:
                 cout << "Thank you for attention..." << endl;
                 cout << "Team members: [Mostafa Ahmed Mostafa Abdelghafar]" << endl;
@@ -218,9 +229,6 @@ int main() {
                 cout << "              [---------------------------------]" << endl;
                 cout << "              [---------------------------------]" << endl;
                 return 0;
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
                 break;
         }
         } while (choice !=6);
