@@ -141,7 +141,7 @@ int main() {
 				}
                 doctor.addDoctor(name, phoneNumber, emailAddress, address, clinic, username, password);
                 doctor.Print();
-                
+                Sleep(5000);
                 break;
               case 2:
                 cout << "Enter name: ";
@@ -171,6 +171,7 @@ int main() {
 				}
                  Patient.AddPatient(name,phoneNumber,emailAddress,address,dateBirth,username,password);
                  Patient.PrintPatients();
+                 Sleep(5000);
                  
                     break;    
             case 3:
@@ -184,7 +185,7 @@ int main() {
                     cout<< "Login Successfule .........";
                  } else 
                  cout<< "please check your username and password Try agein .........";
-                 
+                 Sleep(5000);
                     break;
             
             case 4:
@@ -198,7 +199,7 @@ int main() {
                     cout<< "Login Successfule .........";
                  } else 
                  cout<< "please check your username and password Try agein .........";
-                
+                Sleep(5000);
                 break;
             case 5:
             cout<<"Enter name to search for ";
@@ -206,7 +207,7 @@ int main() {
             cout<<endl;
             doctor.SearchForDoctor(name);
             cout<<endl;
-           
+           Sleep(5000);
             break;
             case 6:
                 cout << "Thank you for attention..." << endl;
