@@ -11,9 +11,6 @@ patient::patient(){
 	prev = NULL;
 }
 
-
-
-
 void patient::PrintPatients(){
 
     cursor = head;  
@@ -32,7 +29,7 @@ void patient::PrintPatients(){
 
 void patient::AddPatient(string name,string phoneNumber,string emailAddress,string address,string DateBirth,string username,string password ,int key){
 	node *newPatient = new node;
-      if(head == NULL)
+      if(head == NULL)  //List is empty
     {
     	
         newPatient ->next = head;

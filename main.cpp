@@ -25,7 +25,7 @@ string CenterText(int x, int y, string S)
 
     return S;
 }
-
+//Display MainMenu Screen 
 void MainMenu(int availableColumns, int Set[])
 {
     cout << CenterText(availableColumns, 1, "#####################################") << endl;
@@ -162,7 +162,7 @@ int main()
                     if (counter == 6)
                         Set[5] = 12;
 
-                } while (key != '\r');
+                } while (key != '\r'); // Enter Key
 
                 switch (counter)
                 {
@@ -289,15 +289,19 @@ int main()
                             switch (counter)
                             {
                             case 1:
-
+                            // TODO Adding Search for Doctor Patient
                                 system("pause");
                                 break;
                             case 2:
-
+                            // TODO Adding Patient Booking Appointment 
                                 system("pause");
 
                                 break;
                             case 3:
+                            // TODO Adding Update Patient Profile 
+                                break;
+                            case 4:
+                            //Logout and return to main menu page
                                 break;
                             }
                         } while (counter != 4);
@@ -360,11 +364,11 @@ int main()
                             switch (counter)
                             {
                             case 1:
-
+                            // TODO Adding View doctor appointments
                                 system("pause");
                                 break;
                             case 2:
-
+                            // TODO Adding Update doctor Profile
                                 system("pause");
 
                                 break;
