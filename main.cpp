@@ -79,6 +79,31 @@ void DoctorMenu(int availableColumns, int Set[], string ID, string username)
     cout << CenterText(availableColumns, 8, "#####################################") << endl;
 }
 
+void PatientMenu(int availableColumns, int Set[], string ID, string username)
+{
+    cout << CenterText(availableColumns, 1, "#####################################") << endl;
+    cout << CenterText(availableColumns, 2, "##          Patient Dashboard       ##") << endl;
+    cout << CenterText(availableColumns, 3, "   ID:" + ID + "         " + username + "    ") << endl;
+    cout << CenterText(availableColumns, 4, "##-------------------------------- ##") << endl;
+    cout << CenterText(availableColumns, 5, "##                                 ##") << endl;
+    color(Set[0]);
+    cout << CenterText(availableColumns, 5, "    1. Search for doctor           ") << endl;
+    color(7);
+    cout << CenterText(availableColumns, 6, "##                                 ##") << endl;
+    color(Set[1]);
+    cout << CenterText(availableColumns, 6, "    2. Book Appointment            ") << endl;
+    color(7);
+    cout << CenterText(availableColumns, 7, "##                                 ##") << endl;
+    color(Set[2]);
+    cout << CenterText(availableColumns, 7, "    3. Update My profile             ") << endl;
+    color(7);
+    cout << CenterText(availableColumns, 8, "##                                 ##") << endl;
+    color(Set[3]);
+    cout << CenterText(availableColumns, 8, "    4. Logout                      ") << endl;
+    color(7);
+    cout << CenterText(availableColumns, 9, "#####################################") << endl;
+}
+
 int main()
 {
     int Set[] = {7, 7, 7, 7, 7, 7};
@@ -87,7 +112,7 @@ int main()
     Doctor doctor;
     patient Patient;
     int choice, ID , DKey =0 , PKey=0;
-    bool DoctorLogedIn = false, MainScreen = true;
+    
     string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword, dateBirth;
 
     CONSOLE_SCREEN_BUFFER_INFO sbInfo;
@@ -203,7 +228,8 @@ int main()
                         cout << "Confirm password: ";
                         cin >> confirmPassword;
                     }
-                    Patient.AddPatient(name, phoneNumber, emailAddress, address, dateBirth, username, password);
+                    Patient.AddPatient(name, phoneNumber, emailAddress, address, dateBirth, username, password , PKey);
+                    PKey++;
                     Patient.PrintPatients();
 
                     system("pause");
@@ -219,10 +245,65 @@ int main()
                     {
                         ID = Patient.RetriveKey();
                         cout << "Login Successfule .........";
+                        counter =1;
+                        do
+                        {
+                            PatientMenu(availableColumns, Set, to_string(ID), username);
+                            system("cls");
+                            do
+                            {
+                                key = _getch();
+                                if (key == 72 && (counter >= 2)) // Up Arrow
+                                {
+                                    counter--;
+                                    cout << "Counter = " << counter << endl;
+                                }
+                                if (key == 80 && (counter >= 1 && counter < 4)) // Down Arrow
+                                {
+                                    counter++;
+                                    cout << "Counter = " << counter << endl;
+                                }
+                                Set[0] = 7;
+                                Set[1] = 7;
+                                Set[2] = 7;
+                                Set[3] = 7;
+                                Set[4] = 7;
+                                Set[5] = 7;
+
+                                if (counter == 1)
+                                    Set[0] = 12;
+                                if (counter == 2)
+                                    Set[1] = 12;
+                                if (counter == 3)
+                                    Set[2] = 12;
+                                if (counter == 4)
+                                    Set[3] = 12;
+                                if (counter == 5)
+                                    Set[4] = 12;
+                                if (counter == 6)
+                                    Set[5] = 12;
+                                PatientMenu(availableColumns, Set, to_string(ID), username);
+
+                            } while (key != '\r');
+
+                            switch (counter)
+                            {
+                            case 1:
+
+                                system("pause");
+                                break;
+                            case 2:
+
+                                system("pause");
+
+                                break;
+                            case 3:
+                                break;
+                            }
+                        } while (counter != 4);
                     }
                     else
                         cout << "please check your username and password Try agein .........";
-                    cout << "press any key to Continue" << endl;
                     system("pause");
                     break;
 
@@ -235,8 +316,6 @@ int main()
                     if (doctor.loginCredientials(username, password))
                     {
                         ID = doctor.RetriveKey();
-                        MainScreen =false;
-                        DoctorLogedIn = true;
                         cout << "Login Successfule .........";
                         counter =1;
                         do
@@ -290,8 +369,6 @@ int main()
 
                                 break;
                             case 3:
-                                DoctorLogedIn = false;
-                                MainScreen = true;
                                 break;
                             }
                         } while (counter != 3);

@@ -30,14 +30,13 @@ void patient::PrintPatients(){
 
 
 
-void patient::AddPatient(string name,string phoneNumber,string emailAddress,string address,string DateBirth,string username,string password ){
-	node *newDoctor = new node;
-	int key=0;
+void patient::AddPatient(string name,string phoneNumber,string emailAddress,string address,string DateBirth,string username,string password ,int key){
+	node *newPatient = new node;
       if(head == NULL)
     {
     	
-        newDoctor ->next = head;
-        head = newDoctor;
+        newPatient ->next = head;
+        head = newPatient;
         cursor = head;
         prev = NULL;   
     }
@@ -47,24 +46,21 @@ void patient::AddPatient(string name,string phoneNumber,string emailAddress,stri
             prev = cursor;
             cursor = cursor->next;
         }
-        newDoctor->next = cursor->next;
-        cursor -> next = newDoctor;
+        newPatient->next = cursor->next;
+        cursor -> next = newPatient;
         prev = cursor;
-        cursor = newDoctor;
+        cursor = newPatient;
 
     }
 
-    newDoctor->key = key;
-	newDoctor->name = name;
-    newDoctor->phoneNumber = phoneNumber;
-    newDoctor->emailAddress = emailAddress;
-    newDoctor->address = address;
-    newDoctor->DateBirth = DateBirth;
-    newDoctor->username = username;
-    newDoctor->password = password;
-    
-    key++;
-	
+    newPatient->key = key;
+	newPatient->name = name;
+    newPatient->phoneNumber = phoneNumber;
+    newPatient->emailAddress = emailAddress;
+    newPatient->address = address;
+    newPatient->DateBirth = DateBirth;
+    newPatient->username = username;
+    newPatient->password = password;
 }
 
 bool patient::loginCredientials(string Username , string Password ){
