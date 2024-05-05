@@ -418,13 +418,7 @@ int main()
                     break;
 
                 case 6:
-                    cout << "Thank you for attention..." << endl;
-                    cout << "Team members: [Mostafa Ahmed Mostafa Abdelghafar]" << endl;
-                    cout << "              [Nour eldin Mohamed Yehia Mohamed ]" << endl;
-                    cout << "              [---------------------------------]" << endl;
-                    cout << "              [---------------------------------]" << endl;
-                    cout << "              [---------------------------------]" << endl;
-                    cout << "              [---------------------------------]" << endl;
+                    Exit();
                     
                     break;
                     return 0;
