@@ -112,13 +112,14 @@ int main()
     Doctor doctor;
     patient Patient;
     int choice, ID , DKey =0 , PKey=0;
-    
-    string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword, dateBirth;
-// Booking
+    // Booking
     booking b;
 	int did;
 	int id=1; 
 	int pid;	string pname;
+    
+    string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword, dateBirth;
+
     CONSOLE_SCREEN_BUFFER_INFO sbInfo;
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &sbInfo);
     int availableColumns = sbInfo.dwSize.X;
@@ -191,8 +192,7 @@ int main()
                     // Check if passwords match
                     while (password != confirmPassword)
                     {
-                        cout << "Passwords do not match. Please try again.\n"
-                             << endl;
+                        cout << "Passwords do not match. Please try again.\n"<< endl;
                         cout << "Enter password: ";
                         cin >> password;
                         cout << "Confirm password: ";
@@ -297,6 +297,7 @@ int main()
                                 system("pause");
                                 break;
                             case 2:
+                            // TODO Adding Patient Booking Appointment 
                             //Patient Booking Appointment 
                                 cout<<"Enter dodctor ID: " ;
 								cin>>did;
@@ -306,9 +307,8 @@ int main()
 						
 								b.NewBooking(id,pid,did,pname);
 								id=id+1; 
-							 system("pause");
-                                break;
-                                system("pause");
+							
+                            system("pause");
 
                                 break;
                             case 3:
@@ -413,8 +413,9 @@ int main()
                     cout << "              [---------------------------------]" << endl;
                     cout << "              [---------------------------------]" << endl;
                     cout << "              [---------------------------------]" << endl;
-                    return 0;
+                    
                     break;
+                    return 0;
                 }
             } while (choice != 6);
         }
