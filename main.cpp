@@ -345,9 +345,8 @@ int main()
                         cout << "please check your username and password Try agein .........";
                     system("pause");
                     break;
-////////////////////////////////Patient Login////////////////////////////////
+////////////////////////////////Doctor Login////////////////////////////////
                 case 4:
-                //Doctor Login
                     cout << "Enter Username: ";
                     cin >> username;
                     cout << "Enter password: ";
@@ -400,8 +399,9 @@ int main()
 
                             switch (counter)
                             {
+////////////////// Doctor View Appointment	                            	
                             case 1:
-                            // TODO Adding View doctor appointments
+                            b.ViewAppointment(did);
                             
                                 system("pause");
                                 break;
