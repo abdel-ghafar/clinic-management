@@ -101,7 +101,7 @@ void Doctor::Print(){
     prev = NULL;     // Go tofirst node
     while ( cursor != NULL) {  // Advance to the next node
             prev = cursor;
-            cout<< cursor->name << " - ";
+            cout<<"Doctor "<< cursor->key <<": "<< cursor->name << endl;
             cursor = cursor->next;
             }
             cout<<endl;
@@ -178,7 +178,8 @@ void Doctor::SearchForDoctor(string name){
             prev = cursor;
             if(toLower(cursor->name).find(name) !=string::npos)
             {
-                cout<<cursor->name << endl;
+               cout<<"Doctor ID: " <<cursor->key << endl;
+			    cout<<"Doctor Name: " <<cursor->name << endl;
 				flag=1;
             }
             cursor = cursor->next;
@@ -281,3 +282,4 @@ void booking::ViewAppointment(int id)
 		cout<<"No appointments can be found!  "<<endl;
 	}	
 }
+
