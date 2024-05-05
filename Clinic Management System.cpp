@@ -265,6 +265,7 @@ void booking::NewBooking(int k,  int pk, int dk, string pn )
 // Display doctor's appointments
 void booking::ViewAppointment(int id)
 {
+	int a=1;
 	bool found = false;
   	toFirst();
 	while (! curIsEmpty())
@@ -272,8 +273,11 @@ void booking::ViewAppointment(int id)
 	
 		if (cursor->dkey== id) {
 			found = true;
-			cout << cursor->pkey <<  endl;
-			cout << cursor->pname << endl;
+			cout<< "* Appointement Number: "<< a<< endl;
+			cout<< "-----------------------------------"<< a<< endl;
+			cout << "                     Patient ID: "<<cursor->pkey <<  endl;
+			cout << "                     Patient Name: "<<cursor->pname << endl<< endl;
+			a++;
 		} 
 		advance();
 	}
@@ -283,3 +287,21 @@ void booking::ViewAppointment(int id)
 	}	
 }
 
+void patient::SearchForp(){
+	bool flag=0;
+    cursor = head;  
+    prev = NULL;     // Go tofirst node
+    while ( cursor != NULL) {  // Advance to the next node
+            prev = cursor;
+            
+               cout<<"p ID: " <<cursor->key << endl;
+			    cout<<"p Name: " <<cursor->name << endl;
+				flag=1;
+            
+            cursor = cursor->next;
+            }
+    if(flag==0)
+    {
+    	cout<< "Doctor not found!"<<endl;
+	}
+}
