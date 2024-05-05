@@ -187,3 +187,92 @@ void Doctor::SearchForDoctor(string name){
 
 
 
+////////////////////// Booking /////////////////////////////
+booking::booking()
+{
+	head = NULL; cursor = NULL;  prev = NULL;
+}
+booking::~booking()
+{
+	makeListEmpty();
+}
+bool booking::curIsEmpty() const
+{
+	return (cursor == NULL);
+}
+void booking::toFirst() 
+{
+	cursor = head;  prev = NULL;
+}
+void booking::makeListEmpty()
+{
+     toFirst();
+     while (! listIsEmpty())
+        deleteNode();
+}
+bool booking::listIsEmpty() const
+{
+	return (head == NULL);
+}
+void booking::deleteNode()
+{
+	NodePointer q; 
+   	if(! curIsEmpty())
+	{		
+		if (atFirst()) 	// delete head node
+   		{	q = cursor;
+			cursor = cursor->next;
+			head = cursor;
+      		delete q;
+		}
+		else 		// delete non-head node
+   		{	q = cursor;
+			cursor = cursor->next;
+			prev->next = cursor;
+			delete q;
+		}
+   }
+}
+bool booking::atFirst() const
+{
+	return (cursor == head);
+}
+void booking::advance() 
+{
+	prev = cursor;
+	cursor = cursor->next;
+}
+//create new appointement
+void booking::NewBooking(int k,  int pk, int dk, string pn )
+{
+	NodePointer pnew; 
+	pnew = new node;
+	pnew->key = k; 
+	pnew->pkey = pk;
+	pnew->dkey=dk;
+	pnew->pname=pn;
+	pnew->next = head;
+	head = pnew;
+	cursor = head;
+	prev = NULL;
+}
+// Display doctor's appointments
+void booking::ViewAppointment(int id)
+{
+	bool found = false;
+  	toFirst();
+	while (! curIsEmpty())
+	{
+	
+		if (cursor->dkey== id) {
+			found = true;
+			cout << cursor->pkey <<  endl;
+			cout << cursor->pname << endl;
+		} 
+		advance();
+	}
+	if (found==false)
+	{
+		cout<<"No appointments can be found!  "<<endl;
+	}	
+}
