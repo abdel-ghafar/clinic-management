@@ -129,7 +129,8 @@ int main()
     booking b;
 	int did;
 	int id=1; 
-	int pid;	string pname;
+	int pid;	
+	string pname, dname;
     
     string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword, dateBirth;
 
@@ -310,14 +311,14 @@ int main()
                             case 1:
 ////////////////// Search for Doctor Patient					    
 				 cout << "Enter name to search for ";
-                    		cin >> name;
+                    		cin >> dname;
                     cout << endl;
-                    doctor.SearchForDoctor(name);
+                    doctor.SearchForDoctor(dname);
                     cout << endl;
-
-                    system("pause");
                                 system("pause");
                                 break;
+                                
+                            
 ////////////////// Patient Booking Appointment				    
                             case 2: 
                                 cout<<"Enter dodctor ID: " ;
@@ -326,7 +327,7 @@ int main()
 				pid = ID;
 				pname=username;
 			//Calling new booking method to insert appointement	
-				b.NewBooking(id,pid,did,pname);
+				b.NewBooking(id,ID,did,name);
 			//concat id to prepare it for next appointement in the list
 				id=id+1; 			
                             system("pause");
@@ -401,6 +402,7 @@ int main()
                             {
                             case 1:
                             // TODO Adding View doctor appointments
+                            
                                 system("pause");
                                 break;
                             case 2:
@@ -419,12 +421,12 @@ int main()
                     break;
 ////////////////////////////////Doctor Search////////////////////////////////			
                 case 5:
-                    cout << "Enter name to search for ";
+                    cout << "Enter doctor name: ";
                     cin >> name;
                     cout << endl;
                     doctor.SearchForDoctor(name);
                     cout << endl;
-
+					
                     system("pause");
                     break;
 
