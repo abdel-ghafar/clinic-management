@@ -58,5 +58,33 @@ class Doctor {
     int RetriveKey();
 };
 
+// Booking 
 
+class booking
+{
+	public:
+		booking(); // Constructor
+		~booking(); // Distructor
+		void NewBooking(int key, int pkey, int dkey, string pname);
+		void ViewAppointment(int dkey);
+		void makeListEmpty();
+		bool curIsEmpty() const;
+		void toFirst();
+		bool listIsEmpty() const;
+		void retrieveKey(int key);
+		void deleteNode();
+		bool atFirst() const;
+		void advance();
+	
+	private:
+		class node
+		{
+			public:
+				int key, pkey, dkey;
+				string pname, dname;
+	    		node* next;
+		};
+		typedef node * NodePointer; 
+		NodePointer head , prev , cursor;		
+};
 
