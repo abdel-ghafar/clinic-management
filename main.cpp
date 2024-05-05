@@ -152,12 +152,12 @@ int main()
                     if (key == 72 && (counter >= 2)) // Up Arrow
                     {
                         counter--;
-                        cout << "Service Number:" << counter << endl;
+                        
                     }
                     if (key == 80 && (counter >= 1 && counter < 6)) // Down Arrow
                     {
                         counter++;
-                        cout << "Service Number:" << counter << endl;
+                        
                     }
                     Set[0] = 7;
                     Set[1] = 7;
@@ -272,12 +272,12 @@ int main()
                                 if (key == 72 && (counter >= 2)) // Up Arrow
                                 {
                                     counter--;
-                                    cout << "Service Number:" << counter << endl;
+                                    
                                 }
                                 if (key == 80 && (counter >= 1 && counter < 4)) // Down Arrow
                                 {
                                     counter++;
-                                    cout << "Service Number:" << counter << endl;
+                                    
                                 }
                                 Set[0] = 7;
                                 Set[1] = 7;
@@ -419,11 +419,12 @@ int main()
 
                 case 6:
                     Exit();
-                    
+                    system("pause");
                     break;
-                    return 0;
+                    
                 }
-            } while (choice != 6);
+            } while (counter != 6);
+            return 0;
         }
 
      
