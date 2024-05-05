@@ -252,6 +252,7 @@ int main()
 
                     break;
                 case 3:
+                //Patient Login
                     cout << "Enter Username: ";
                     cin >> username;
                     cout << "Enter password: ";
@@ -264,10 +265,11 @@ int main()
                         counter =1;
                         do
                         {
-                            PatientMenu(availableColumns, Set, to_string(ID), username);
+                            
                             system("cls");
                             do
                             {
+                                PatientMenu(availableColumns, Set, to_string(ID), username);
                                 key = _getch();
                                 if (key == 72 && (counter >= 2)) // Up Arrow
                                 {
@@ -338,6 +340,7 @@ int main()
                     break;
 
                 case 4:
+                //Doctor Login
                     cout << "Enter Username: ";
                     cin >> username;
                     cout << "Enter password: ";
@@ -353,6 +356,7 @@ int main()
                             system("cls");
                             do
                             {
+                                DoctorMenu(availableColumns, Set, to_string(ID), username);
                                 key = _getch();
                                 if (key == 72 && (counter >= 2)) // Up Arrow
                                 {
