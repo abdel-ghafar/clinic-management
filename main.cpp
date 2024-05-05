@@ -114,7 +114,11 @@ int main()
     int choice, ID , DKey =0 , PKey=0;
     
     string name, phoneNumber, emailAddress, address, clinic, username, password, confirmPassword, dateBirth;
-
+// Booking
+    booking b;
+	int did;
+	int id=1; 
+	int pid;	string pname;
     CONSOLE_SCREEN_BUFFER_INFO sbInfo;
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &sbInfo);
     int availableColumns = sbInfo.dwSize.X;
@@ -293,7 +297,17 @@ int main()
                                 system("pause");
                                 break;
                             case 2:
-                            // TODO Adding Patient Booking Appointment 
+                            //Patient Booking Appointment 
+                                cout<<"Enter dodctor ID: " ;
+								cin>>did;
+							//patient id comes from the title
+								pid = ID;
+								pname=username;
+						
+								b.NewBooking(id,pid,did,pname);
+								id=id+1; 
+							 system("pause");
+                                break;
                                 system("pause");
 
                                 break;
