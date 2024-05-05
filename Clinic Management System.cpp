@@ -171,6 +171,7 @@ string toLower(string s) {
 }
 
 void Doctor::SearchForDoctor(string name){
+	bool flag=0;
     cursor = head;  
     prev = NULL;     // Go tofirst node
     while ( cursor != NULL) {  // Advance to the next node
@@ -178,11 +179,14 @@ void Doctor::SearchForDoctor(string name){
             if(toLower(cursor->name).find(name) !=string::npos)
             {
                 cout<<cursor->name << endl;
-
+				flag=1;
             }
             cursor = cursor->next;
             }
-    
+    if(flag==0)
+    {
+    	cout<< "Doctor not found!"<<endl;
+	}
 }
 
 
