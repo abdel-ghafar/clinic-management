@@ -103,7 +103,19 @@ void PatientMenu(int availableColumns, int Set[], string ID, string username)
     color(7);
     cout << CenterText(availableColumns, 9, "#####################################") << endl;
 }
-
+// Exit
+void Exit()
+{
+	cout << "*********************************************************************" << endl << endl;
+	 cout << "*** Supervised by: Dr. Haidy Hamed " << endl<<endl;
+     cout << "*** Team members:" << endl;
+                cout << "                  * Basma Mohammad Kamel Abdelmohsen Mohammad" << endl;
+                cout << "                  * Marwa Osama Abdelrahman Azzam" << endl;
+                cout << "                  * Mostafa Ahmed Mostafa Abdelghafar" << endl;
+                cout << "                  * Nour eldin Mohamed yehia Mohamed eladawy" << endl<< endl;
+                cout << "*** Thanks for your attention..." << endl;
+    cout << "*********************************************************************" << endl << endl;            
+}
 int main()
 {
     int Set[] = {7, 7, 7, 7, 7, 7};
@@ -140,12 +152,12 @@ int main()
                     if (key == 72 && (counter >= 2)) // Up Arrow
                     {
                         counter--;
-                        cout << "Counter = " << counter << endl;
+                        cout << "Service Number:" << counter << endl;
                     }
                     if (key == 80 && (counter >= 1 && counter < 6)) // Down Arrow
                     {
                         counter++;
-                        cout << "Counter = " << counter << endl;
+                        cout << "Service Number:" << counter << endl;
                     }
                     Set[0] = 7;
                     Set[1] = 7;
@@ -260,12 +272,12 @@ int main()
                                 if (key == 72 && (counter >= 2)) // Up Arrow
                                 {
                                     counter--;
-                                    cout << "Counter = " << counter << endl;
+                                    cout << "Service Number:" << counter << endl;
                                 }
                                 if (key == 80 && (counter >= 1 && counter < 4)) // Down Arrow
                                 {
                                     counter++;
-                                    cout << "Counter = " << counter << endl;
+                                    cout << "Service Number:" << counter << endl;
                                 }
                                 Set[0] = 7;
                                 Set[1] = 7;
