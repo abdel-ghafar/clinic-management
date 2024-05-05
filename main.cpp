@@ -57,6 +57,7 @@ void MainMenu(int availableColumns, int Set[])
     color(7);
     cout << CenterText(availableColumns, 10, "#####################################") << endl;
 }
+//Display Doctor's menu Screen
 void DoctorMenu(int availableColumns, int Set[], string ID, string username)
 {
     cout << CenterText(availableColumns, 1, "#####################################") << endl;
@@ -78,7 +79,7 @@ void DoctorMenu(int availableColumns, int Set[], string ID, string username)
     color(7);
     cout << CenterText(availableColumns, 8, "#####################################") << endl;
 }
-
+//Display patient's menu
 void PatientMenu(int availableColumns, int Set[], string ID, string username)
 {
     cout << CenterText(availableColumns, 1, "#####################################") << endl;
@@ -103,7 +104,7 @@ void PatientMenu(int availableColumns, int Set[], string ID, string username)
     color(7);
     cout << CenterText(availableColumns, 9, "#####################################") << endl;
 }
-// Exit
+// Exit massege
 void Exit()
 {
 	cout << "*********************************************************************" << endl << endl;
@@ -138,8 +139,6 @@ int main()
     int availableRows = sbInfo.dwSize.Y;
 
     // Menu-driven user interface
-
-    
             do
             {
                 system("cls");
@@ -183,6 +182,7 @@ int main()
 
                 switch (counter)
                 {
+////////////////////////////////Doctor Registration////////////////////////////////
                 case 1:
                     cout << "Enter Doctor name: ";
                     cin >> name;
@@ -216,6 +216,7 @@ int main()
 
                     system("pause");
                     break;
+////////////////////////////////Patient Registration////////////////////////////////			
                 case 2:
                     cout << "Enter name: ";
                     cin >> name;
@@ -303,27 +304,32 @@ int main()
                                 PatientMenu(availableColumns, Set, to_string(ID), username);
 
                             } while (key != '\r');
-
+////////////////////////////////Patient Menu switch////////////////////////////////
                             switch (counter)
                             {
                             case 1:
-                            // TODO Adding Search for Doctor Patient
+////////////////// Search for Doctor Patient					    
+				 cout << "Enter name to search for ";
+                    		cin >> name;
+                    cout << endl;
+                    doctor.SearchForDoctor(name);
+                    cout << endl;
+
+                    system("pause");
                                 system("pause");
                                 break;
-                            case 2:
-                            // TODO Adding Patient Booking Appointment 
-                            //Patient Booking Appointment 
+////////////////// Patient Booking Appointment				    
+                            case 2: 
                                 cout<<"Enter dodctor ID: " ;
-								cin>>did;
-							//patient id comes from the title
-								pid = ID;
-								pname=username;
-						
-								b.NewBooking(id,pid,did,pname);
-								id=id+1; 
-							
+				cin>>did;
+			//patient id & name from patint code
+				pid = ID;
+				pname=username;
+			//Calling new booking method to insert appointement	
+				b.NewBooking(id,pid,did,pname);
+			//concat id to prepare it for next appointement in the list
+				id=id+1; 			
                             system("pause");
-
                                 break;
                             case 3:
                             // TODO Adding Update Patient Profile 
@@ -338,7 +344,7 @@ int main()
                         cout << "please check your username and password Try agein .........";
                     system("pause");
                     break;
-
+////////////////////////////////Patient Login////////////////////////////////
                 case 4:
                 //Doctor Login
                     cout << "Enter Username: ";
@@ -411,6 +417,7 @@ int main()
                     else
                         cout << "please check your username and password Try agein .........";
                     break;
+////////////////////////////////Doctor Search////////////////////////////////			
                 case 5:
                     cout << "Enter name to search for ";
                     cin >> name;
